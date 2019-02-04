@@ -76,4 +76,25 @@ function myTimer() {
 }
 $(document).ready(function() {
   addGrid(50);
+  function mapFill(){
+
+    var map = [];
+
+    for(i=0;i<12;i++){
+      var mapAdd = [parseInt(Math.random()*45),parseInt(Math.random()*49)];
+      if(map.includes(mapAdd) === false)
+      {
+        map.push(mapAdd);
+      }
+    }
+ console.log(map);
+
+    map.forEach(function(ma){
+      console.log("#cell" + ma[0] + "-" + ma[1]);
+      $("#cell" + ma[0] + "-" + ma[1]+ "").append("<img class='tree' src='img/tree.png'>");
+    })
+
+  }
+ // <img src='img/tree.jpg'>
+  mapFill();
 });

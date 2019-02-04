@@ -82,3 +82,12 @@ h1{
 .btn:hover{
   color: #00ff41;
 }
+
+.tree{
+  position: absolute;
+  margin-left: -9.5px;
+  width: 38px;
+  height: 58px;
+  padding: none;
+  margin-bottom: 19px;
+}

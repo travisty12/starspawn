@@ -9,12 +9,12 @@
     <script src="js/scripts.js"></script>
     <title>STARSPAWN</title>
   </head>
-  <body>
+  <body onresize="checkGridSize()">
     <div class="container">
       <h1>STARSPAWN</h1>
       <p id="timer">30</p>
-      <div id="gridSpot"></div>
-      <div class="well" id="inventory">
+      <!-- <div id="gridSpot"></div> -->
+      <div class="well navbar navbar-fixed-bottom" id="inventory">
         <h3>Inventory: <span id="wood"></span></h3>
         <h3>Score: <span id="score-count"></span></h3>
       </div>
@@ -24,8 +24,9 @@
         <img src="img/zelda_fire_render.gif" class="skelly">
         <button class="btn"><h3 >Continue?</h3></button>
       </div>
-      <img src="imgs/bonfire.gif" alt="bonfire" class="bonfire">
-      <img src="imgs/blackPac.jpg" alt="pacman" class="ball">
+      <img src="img/bonfire.gif" alt="bonfire" class="bonfire">
+      <img src="img/skull.jpg" alt="pacman" class="ball">
     </div>
+    <div id="gridSpot"></div>
   </body>
 </html>

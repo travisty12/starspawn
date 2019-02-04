@@ -8,19 +8,22 @@ h1{
    font-size: 90px;
  }
 
+ #game-over {
+   display: none;
+ }
+
  #timer{
    color:red;
    font-size: 30px;
  }
 
 #gridSpot {
-  position: relative;
   top: 30px;
   outline: 1px solid rgba(255, 0, 0, 0.8);
   font-size: 0;
-  margin: auto;
-  height: 960px;
-  width: 960px;
+  margin: 0;
+  height: 900px;
+  width: 100%;
   padding: 0;
   border: none;
 }
@@ -45,8 +48,8 @@ h1{
   width: 200px;
   height: 200px;
   position: absolute;
-  left: 50%;
-  top: 50%;
+  left: 45%;
+  top: 40%;
 }
 
 .well {

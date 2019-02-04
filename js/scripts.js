@@ -51,23 +51,29 @@ function addGrid(size){
       $("#gridSpot").append("<div class='grid' id='cell" + rows + "-" + columns + "'></div>");
     };
   };
-  $(".grid").width(960/size);
-  $(".grid").height(960/size);
+  $(".grid").width(parseInt($("#gridSpot").css("width")) / size);
+  $(".grid").height(900/size);
 }
-  var myVar = setInterval(myTimer, 1000);
-  var timeLeft = 30;
-  function myTimer() {
-    if (timeLeft > 0){
-    	timeLeft--;
-    	document.getElementById("timer").innerHTML = timeLeft;
-    } else {
-      clearInterval(myVar);
-      document.getElementById("timer").innerHTML = "Game Over";
-      $("#timer").toggle();
-      $("#scoreboard").toggle();
-      $("#score").text(score(bananaNum,cherryNum,pearNum,pineappleNum,strawberryNum));
-    }
+
+function checkGridSize() {
+  $(".grid").width(parseInt($("#gridSpot").css("width")) / 50);
+  $(".grid").height(900/50);
+}
+
+var myVar = setInterval(myTimer, 1000);
+var timeLeft = 30;
+function myTimer() {
+  if (timeLeft > 0){
+  	timeLeft--;
+  	document.getElementById("timer").innerHTML = timeLeft;
+  } else {
+    clearInterval(myVar);
+    document.getElementById("timer").innerHTML = "Game Over";
+    $("#timer").toggle();
+    $("#scoreboard").toggle();
+    $("#score").text(score(bananaNum,cherryNum,pearNum,pineappleNum,strawberryNum));
   }
+}
 $(document).ready(function() {
   addGrid(50);
 });

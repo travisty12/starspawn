@@ -1,7 +1,7 @@
 body{
   font-family: 'Press Start 2P';
   text-align: center;
-  background-color: #E7C008;
+  background-color: white;
 }
 
 h1{
@@ -16,7 +16,28 @@ h1{
 .cell {
   background-color: black;
   border: 1px solid black;
-  height:50px;
+  height: 2px;
+  width: 2px;
+}
+
+#gridSpot {
+  position: relative;
+  top: 30px;
+  outline: 2px solid #000;
+  font-size: 0;
+  margin: auto;
+  height: 960px;
+  width: 960px;
+  padding: 0;
+  border: none;
+}
+
+.grid {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: 1px solid #000;
+  display: inline-block;
 }
 
 .emptyCell{
@@ -40,7 +61,7 @@ h1{
 
 .dot{
   background-image:url('../imgs/dot.png');
-  background-size:30%;
+  background-size:100%;
   background-repeat: no-repeat;
 }
 

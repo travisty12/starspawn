@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
+    <script src="js/jquery-3.3.1.js"=></script>
+    <script src="js/scripts.js"></script>
+    <title>STARSPAWN</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>PacShoppe</h1>
+      <p id="timer">30</p>
+      <p id="scoreboard">You got <span id="score"></span> points!</p>
+      <p>You have <span id="dotAmount"></span> dots to spend!</p>
+      <div id="shopSpot">
+        <div class="row">
+          <div id="banana" class="card">
+            <img class="card-img-top" src="imgs/banana.png" alt="banana">
+            <div class="card-body">
+              <h3 class="card-title">Banana</h3>
+              <p class="card-text">x<span id="numBanana">0</span></p>
+              <p>Cost: 20 dots</p>
+            </div>
+          </div>
+          <div id="cherry" class="card">
+            <img class="card-img-top" src="imgs/cherry.png" alt="cherry">
+            <div class="card-body">
+              <h3 class="card-title">Cherry</h3>
+              <p class="card-text">x<span id="numCherry">0</span></p>
+              <p>Cost: 40 dots</p>
+            </div>
+          </div>
+          <div id="pear" class="card">
+            <img class="card-img-top" src="imgs/pear.png" alt="pear">
+            <div class="card-body">
+              <h3 class="card-title">Pear</h3>
+              <p class="card-text">x<span id="numPear">0</span></p>
+              <p>Cost: 60 dots</p>
+            </div>
+          </div>
+          <div id="pineapple" class="card">
+            <img class="card-img-top" src="imgs/pineapple.png" alt="pineapple">
+            <div class="card-body">
+              <h3 class="card-title">Pineapple</h3>
+              <p class="card-text">x<span id="numPineapple">0</span></p>
+              <p>Cost: 80 dots</p>
+            </div>
+          </div>
+          <div id="strawberry" class="card">
+            <img class="card-img-top" src="imgs/strawberry.png" alt="strawberry">
+            <div class="card-body">
+              <h3 class="card-title">Strawberry</h3>
+              <p class="card-text">x<span id="numStrawberry">0</span></p>
+              <p>Cost: 100 dots</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="gridSpot"></div>
+    </div>
+  </body>
+</html>

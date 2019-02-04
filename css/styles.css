@@ -13,17 +13,10 @@ h1{
    font-size: 30px;
  }
 
-.cell {
-  background-color: black;
-  border: 1px solid black;
-  height: 2px;
-  width: 2px;
-}
-
 #gridSpot {
   position: relative;
   top: 30px;
-  outline: 2px solid #000;
+  outline: 1px solid rgba(255, 0, 0, 0.8);
   font-size: 0;
   margin: auto;
   height: 960px;
@@ -36,45 +29,22 @@ h1{
   margin: 0;
   padding: 0;
   border: none;
-  outline: 1px solid #000;
+  outline: 1px solid rgba(255, 0, 0, 0.3);
   display: inline-block;
 }
 
-.emptyCell{
-  background-image:none;
+.ball {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 30px;
+  top: 40px;
 }
 
-.pacAt{
-  background-image: url("../imgs/blackPac.jpg");
-  background-size:contain;
-  background-repeat: no-repeat;
-
-}
-
-#title{
-  width:100%;
-}
-
-#scoreboard {
-  display: none;
-}
-
-.dot{
-  background-image:url('../imgs/dot.png');
-  background-size:100%;
-  background-repeat: no-repeat;
-}
-
-.fruit{
-  width:60px;
-}
-.card {
-  width:20%;
-  background-color: #E75808;
-}
-.card-img-top{
-  margin-left:auto;
-  margin-right: auto;
-  margin-top:10px;
-  width:60px;
+.bonfire {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
 }

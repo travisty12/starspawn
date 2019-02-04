@@ -117,7 +117,7 @@ var strawberryNum=0;
 
 
 $(document).ready(function() {
-  addGrid(10);
+  addGrid(20);
   updatePos(pacMan);
   document.addEventListener("keydown", function(event) {
     pacMan.move(event);

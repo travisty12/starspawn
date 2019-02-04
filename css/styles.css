@@ -78,3 +78,34 @@ h1{
   margin-top:10px;
   width:60px;
 }
+
+.well {
+  text-align: left;
+  border: 5px, solid, black;
+  width: 42%;
+  text-decoration: underline;
+  background-color:black;
+  color: #00ff41;
+}
+
+#game-over {
+  background-color: black;
+  color: white;
+  padding-top:15px;
+  padding-bottom: 45px;
+  color: #B22222;
+}
+
+.skelly {
+  margin-left: -610px;
+}
+
+.btn {
+  display: block;
+  margin: auto;
+
+}
+
+.btn:hover{
+  color: #00ff41;
+}

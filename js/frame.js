@@ -30,7 +30,25 @@ Player.prototype.addToFire(theFire){
   }
 }
 
-Function Tree(){
+function Tree(){
   this.used = false;
   this.reUse = 0;
+}
+
+// var const map = [[4,4],[16,3],[10,1],[3,11],[18,8],[13,7],[16,18],[9,17],[3,18]];
+// function mapFill(){
+//   map.forEach(function(ma){
+//     $("#cell" + ma[0] + "-" + ma[1]).append("<img src='img/tree.jpg'>");
+//   })
+// }
+//
+// mapFill();
+
+function gameOver(){
+$("#gridSpot").hide();
+$("#game-over").show();
+}
+
+function gameRestart(){
+
 }

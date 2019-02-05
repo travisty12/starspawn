@@ -1,17 +1,17 @@
 var change = {
-  37: {
+  37: {     //left
     left: "-=1",
   },
 
-  38: {
+  38: {     //down
     top: "-=1"
   },
 
-  39: {
+  39: {     //right
     left: "+=1"
   },
 
-  40: {
+  40: {     //up
     top: "+=1"
   },
 };
@@ -58,12 +58,14 @@ function keydown(e) {
       else {}
     }
   }
-
+}
   if (key === 32) {
     checkTrees(map);
+    console.log(checkTrees(map))
   }
+
   if(((parseInt($(".ball").css("left")) >= parseInt($(".bonfire").css("left")) - 20) && parseInt($(".ball").css("left")) <= parseInt($(".bonfire").css("left")) + 120) && ((parseInt($(".ball").css("top")) >= parseInt($(".bonfire").css("top")) - 20) && parseInt($(".ball").css("top")) <= parseInt($(".bonfire").css("top")) + 120)) {
-    console.log("hello");
+    console.log('fire');
   }
 }
 
@@ -88,21 +90,22 @@ function checkGridSize() {
   $(".grid").height(900/50);
 }
 
-var myVar = setInterval(myTimer, 1000);
+var myVar = "";//setInterval(myTimer, 1000);
 function myTimer() {
   if (fire.life > 0){
   	fire.life--;
   	document.getElementById("timer").innerHTML = fire.life;
-    if(fire.life % 5 === 0){
-      mapFill();
-    }
   } else {
     clearInterval(myVar);
     gameOver();
   }
 }
 
-<<<<<<< HEAD
+function refill(){
+    trees -= 1;
+    mapFill();
+}
+
 function checkTrees(treesAvailable) {
   var treesClose = [];
   treesAvailable.forEach(function(tree) {
@@ -111,6 +114,7 @@ function checkTrees(treesAvailable) {
         if (parseInt($(".man").css("top")) >= (180 + (19* tree[0]) - 60)) {
           if (parseInt($(".man").css("top")) <= (180 + (19 * tree[0]) + 118)) {
             treesClose.push(tree);
+            player.cutTree(treesClose);
           }
         }
       }
@@ -119,7 +123,7 @@ function checkTrees(treesAvailable) {
   return treesClose;
 }
 
-var trees = 0;
+ var trees = 0;
 var map = [];
 
 function mapFill(){
@@ -138,7 +142,7 @@ function mapFill(){
 console.log(map);
 
   map.forEach(function(ma){
-    console.log("#cell" + ma[0] + "-" + ma[1]);
+    // console.log("#cell" + ma[0] + "-" + ma[1]);
     $("#cell" + ma[0] + "-" + ma[1]+ "").append("<img class='tree' src='img/tree.png'>");
   });
 }
@@ -150,6 +154,8 @@ $(document).ready(function() {
     $("#mainDiv").toggle();
     $("#gameDiv").toggle();
     $("#gridSpot").toggle();
+    gameRestart();
+  });
   $(".btn").click(function(){
     gameRestart();
   });

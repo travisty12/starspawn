@@ -32,8 +32,10 @@ h1{
   margin: 0;
   padding: 0;
   border: none;
-  outline: 1px solid rgba(255, 0, 0, 0.3);
+  /* outline: 1px solid rgba(255, 0, 0, 0.3); */
   display: inline-block;
+  background-image: url("../img/grass.jpg");
+  background-size: cover;
 }
 
 .ball {
@@ -95,4 +97,5 @@ h1{
 .man img {
   height: 50%;
   width: auto;
+  top: 120px;
 }

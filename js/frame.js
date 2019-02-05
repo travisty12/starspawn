@@ -17,11 +17,22 @@ function Player(){
 
 
 Player.prototype.cutTree = function(arr){
+  this.inventory[0].amount++;
     arr.forEach(function(ar){
-      this.inventory[0].amount++;
-      trees--;
+      map[map.indexOf(ar)] = [];
     })
-};
+    map = map.filter(function(ma){
+      if(ma.length > 1)
+      {
+        return ma;
+      }
+    })
+    console.log(map.length);
+    $(".tree").remove();
+    mapFill();
+    setTimeout(refill, 10000);
+
+  }
 
 Player.prototype.addToFire = function(){
   if(this.inventory[0].amount > 0){

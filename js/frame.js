@@ -3,10 +3,10 @@ function Fire(){
 }
 
 function Player(){
-  this.pos = [50,50],
-  this.inventory = [{type: wood, amount: 0}],
-  this.score = 0,
-  this.time = 0
+  this.pos = [50,50];
+  this.inventory = [{type: wood, amount: 0}];
+  this.score = 0;
+  this.time = 0;
 }
 
 // Player.prototype.addToInventory(obj){
@@ -20,7 +20,7 @@ Player.prototype.cutTree = function(theTree){
     theTree.used = true;
     theTree.reUse = 60;
   }
-}
+};
 
 //Add wood to fire, add 30 seconds to fire life
 Player.prototype.addToFire = function(theFire){
@@ -28,7 +28,7 @@ Player.prototype.addToFire = function(theFire){
     this.inventory[0].amount -= 1;
     theFire.life += 30;
   }
-}
+};
 
 function Tree(){
   this.used = false;

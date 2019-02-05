@@ -25,13 +25,14 @@ var movement = [];
 
 function keydown(e) {
   var key = e.which;
-  var animation = change[key];
-  if (!movement[key]) { // watch out for repeating keys!
-    movement[key] = setInterval(keepGoing, 1);
-  }
+  if (key >= 37 && key <= 40) {
+    var animation = change[key];
+    if (!movement[key]) { // watch out for repeating keys!
+      movement[key] = setInterval(keepGoing, 1);
+    }
 
-   //console.log("down", key, movement[key])
-  function keepGoing() {
+     //console.log("down", key, movement[key])
+    function keepGoing() {
     if(over === false){
       $(".ball").css(animation)
       if (key === 37) {
@@ -56,6 +57,10 @@ function keydown(e) {
       }
       else {}
     }
+  }
+
+  if (key === 32) {
+    checkTrees(map);
   }
   if(((parseInt($(".ball").css("left")) >= parseInt($(".bonfire").css("left")) - 20) && parseInt($(".ball").css("left")) <= parseInt($(".bonfire").css("left")) + 120) && ((parseInt($(".ball").css("top")) >= parseInt($(".bonfire").css("top")) - 20) && parseInt($(".ball").css("top")) <= parseInt($(".bonfire").css("top")) + 120)) {
     console.log("hello");
@@ -97,9 +102,27 @@ function myTimer() {
   }
 }
 
+<<<<<<< HEAD
+function checkTrees(treesAvailable) {
+  var treesClose = [];
+  treesAvailable.forEach(function(tree) {
+    if (parseInt($(".man").css("left")) >= ((parseInt($("#gridSpot").css("width")) / 50) * tree[1]) - 60) {
+      if (parseInt($(".man").css("left")) <= ((parseInt($("#gridSpot").css("width")) / 50) * tree[1]) + 98) {
+        if (parseInt($(".man").css("top")) >= (180 + (19* tree[0]) - 60)) {
+          if (parseInt($(".man").css("top")) <= (180 + (19 * tree[0]) + 118)) {
+            treesClose.push(tree);
+          }
+        }
+      }
+    }
+  });
+  return treesClose;
+}
+
 var trees = 0;
-function mapFill(){
 var map = [];
+
+function mapFill(){
 
   while(trees < 12){
     var mapAdd = [parseInt(Math.random()*45),parseInt(Math.random()*49)];
@@ -123,6 +146,10 @@ console.log(map);
 $(document).ready(function() {
   addGrid(50);
   mapFill();
+  $("#play").click(function() {
+    $("#mainDiv").toggle();
+    $("#gameDiv").toggle();
+    $("#gridSpot").toggle();
   $(".btn").click(function(){
     gameRestart();
   });

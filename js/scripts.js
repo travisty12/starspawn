@@ -14,25 +14,25 @@ var change = {
   40: {
     top: "+=1"
   },
-}
+};
 $(document).on({
   keydown: keydown,
   keyup: keyup
-})
+});
 
 
-var movement = []
+var movement = [];
 
 function keydown(e) {
-  var key = e.which
+  var key = e.which;
   var animation = change[key];
   if (!movement[key]) { // watch out for repeating keys!
-    movement[key] = setInterval(keepGoing, 1)
+    movement[key] = setInterval(keepGoing, 1);
   }
 
    //console.log("down", key, movement[key])
   function keepGoing() {
-    $(".ball").css(animation)
+    $(".ball").css(animation);
   }
   if(((parseInt($(".ball").css("left")) >= parseInt($(".bonfire").css("left")) - 20) && parseInt($(".ball").css("left")) <= parseInt($(".bonfire").css("left")) + 220) && ((parseInt($(".ball").css("top")) >= parseInt($(".bonfire").css("top")) - 20) && parseInt($(".ball").css("top")) <= parseInt($(".bonfire").css("top")) + 220)) {
     console.log("hello");
@@ -40,8 +40,8 @@ function keydown(e) {
 }
 
 function keyup(e) {
-  var key = e.which
-  movement[key] = clearInterval(movement[key])
+  var key = e.which;
+  movement[key] = clearInterval(movement[key]);
      //console.log("up", key, movement[key])
 }
 
@@ -49,8 +49,8 @@ function addGrid(size){
   for (var rows = 0; rows < size; rows++) {
     for (var columns = 0; columns < size; columns++) {
       $("#gridSpot").append("<div class='grid' id='cell" + rows + "-" + columns + "'></div>");
-    };
-  };
+    }
+  }
   $(".grid").width(parseInt($("#gridSpot").css("width")) / size);
   $(".grid").height(900/size);
 }
@@ -92,8 +92,7 @@ $(document).ready(function() {
     map.forEach(function(ma){
       console.log("#cell" + ma[0] + "-" + ma[1]);
       $("#cell" + ma[0] + "-" + ma[1]+ "").append("<img class='tree' src='img/tree.png'>");
-    })
-
+    });
   }
  // <img src='img/tree.jpg'>
   mapFill();

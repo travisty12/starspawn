@@ -59,6 +59,9 @@ function keydown(e) {
   if (key === 32) {
     checkTrees(map);
   }
+
+  // if(parseInt($(".ball").css("left")))
+  //
   if(((parseInt($(".ball").css("left")) >= parseInt($(".bonfire").css("left")) - 20) && parseInt($(".ball").css("left")) <= parseInt($(".bonfire").css("left")) + 120) && ((parseInt($(".ball").css("top")) >= parseInt($(".bonfire").css("top")) - 20) && parseInt($(".ball").css("top")) <= parseInt($(".bonfire").css("top")) + 120)) {
     console.log("hello");
   }

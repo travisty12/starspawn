@@ -1,5 +1,5 @@
 function Fire(){
-  this.life = 5;
+  this.life = 100;
 }
 
 var fire = new Fire();
@@ -26,7 +26,7 @@ Player.prototype.cutTree = function(arr){
 Player.prototype.addToFire = function(){
   if(this.inventory[0].amount > 0){
     this.inventory[0].amount -= 1;
-    fire.life += 30;
+    fire.life += 5;
   }
 };
 

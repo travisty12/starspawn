@@ -57,7 +57,7 @@ function keydown(e) {
       else {}
     }
   }
-  if(((parseInt($(".ball").css("left")) >= parseInt($(".bonfire").css("left")) - 20) && parseInt($(".ball").css("left")) <= parseInt($(".bonfire").css("left")) + 220) && ((parseInt($(".ball").css("top")) >= parseInt($(".bonfire").css("top")) - 20) && parseInt($(".ball").css("top")) <= parseInt($(".bonfire").css("top")) + 220)) {
+  if(((parseInt($(".ball").css("left")) >= parseInt($(".bonfire").css("left")) - 20) && parseInt($(".ball").css("left")) <= parseInt($(".bonfire").css("left")) + 120) && ((parseInt($(".ball").css("top")) >= parseInt($(".bonfire").css("top")) - 20) && parseInt($(".ball").css("top")) <= parseInt($(".bonfire").css("top")) + 120)) {
     console.log("hello");
   }
 }
@@ -88,21 +88,28 @@ function myTimer() {
   if (fire.life > 0){
   	fire.life--;
   	document.getElementById("timer").innerHTML = fire.life;
+    if(fire.life % 5 === 0){
+      mapFill();
+    }
   } else {
     clearInterval(myVar);
     gameOver();
   }
 }
+
+var trees = 0;
 function mapFill(){
-  var trees = 0;
-  var map = [];
+var map = [];
 
   while(trees < 12){
     var mapAdd = [parseInt(Math.random()*45),parseInt(Math.random()*49)];
     if(map.includes(mapAdd) === false)
     {
-      map.push(mapAdd);
-      trees++;
+      if((mapAdd[0] > 13 && mapAdd[0] < 26) && (mapAdd[1] > 19 && mapAdd[1]<28)){
+      }else{
+        map.push(mapAdd);
+        trees++;
+      }
     }
   }
 console.log(map);

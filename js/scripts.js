@@ -32,28 +32,30 @@ function keydown(e) {
 
    //console.log("down", key, movement[key])
   function keepGoing() {
-    $(".ball").css(animation)
-    if (key === 37) {
-      $(".man").empty();
-      $(".man").append("<img src='img/leftMan.gif'>");
+    if(over === false){
+      $(".ball").css(animation)
+      if (key === 37) {
+        $(".man").empty();
+        $(".man").append("<img src='img/leftMan.gif'>");
+      }
+      else if (key === 38) {
+        $(".man").empty();
+        $(".man").append("<img src='img/upMan.gif'>");
+      }
+      else if (key === 39) {
+        $(".man").empty();
+        $(".man").append("<img src='img/rightMan.gif'>");
+      }
+      else if (key === 40) {
+        $(".man").empty();
+        $(".man").append("<img src='img/downMan.gif'>");
+      }
+      else if (key === 37 && key === 40) {
+        $(".man").empty();
+        $(".man").append("<img src='img/skull.gif'>");
+      }
+      else {}
     }
-    else if (key === 38) {
-      $(".man").empty();
-      $(".man").append("<img src='img/upMan.gif'>");
-    }
-    else if (key === 39) {
-      $(".man").empty();
-      $(".man").append("<img src='img/rightMan.gif'>");
-    }
-    else if (key === 40) {
-      $(".man").empty();
-      $(".man").append("<img src='img/downMan.gif'>");
-    }
-    else if (key === 37 && key === 40) {
-      $(".man").empty();
-      $(".man").append("<img src='img/skull.gif'>");
-    }
-    else {}
   }
   if(((parseInt($(".ball").css("left")) >= parseInt($(".bonfire").css("left")) - 20) && parseInt($(".ball").css("left")) <= parseInt($(".bonfire").css("left")) + 220) && ((parseInt($(".ball").css("top")) >= parseInt($(".bonfire").css("top")) - 20) && parseInt($(".ball").css("top")) <= parseInt($(".bonfire").css("top")) + 220)) {
     console.log("hello");
@@ -82,17 +84,13 @@ function checkGridSize() {
 }
 
 var myVar = setInterval(myTimer, 1000);
-var timeLeft = 30;
 function myTimer() {
-  if (timeLeft > 0){
-  	timeLeft--;
-  	document.getElementById("timer").innerHTML = timeLeft;
+  if (fire.life > 0){
+  	fire.life--;
+  	document.getElementById("timer").innerHTML = fire.life;
   } else {
     clearInterval(myVar);
-    document.getElementById("timer").innerHTML = "Game Over";
-    $("#timer").toggle();
-    $("#scoreboard").toggle();
-    $("#score").text(score(bananaNum,cherryNum,pearNum,pineappleNum,strawberryNum));
+    gameOver();
   }
 }
 function mapFill(){
@@ -118,4 +116,7 @@ console.log(map);
 $(document).ready(function() {
   addGrid(50);
   mapFill();
+  $(".btn").click(function(){
+    gameRestart();
+  });
 });

@@ -26,7 +26,6 @@ var movement = [];
 function keydown(e) {
   var key = e.which;
   if (key === 65 || key === 68 || key === 83 || key === 87) {
-    console.log(change[key]);
     var animation = change[key];
     if (!movement[key]) { // watch out for repeating keys!
       movement[key] = setInterval(keepGoing, 1);

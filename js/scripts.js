@@ -33,6 +33,7 @@ function keydown(e) {
 
      //console.log("down", key, movement[key])
     function keepGoing() {
+    if(over === false){
       $(".ball").css(animation)
       if (key === 37) {
         $(".man").empty();
@@ -61,7 +62,7 @@ function keydown(e) {
   if (key === 32) {
     checkTrees(map);
   }
-  if(((parseInt($(".ball").css("left")) >= parseInt($(".bonfire").css("left")) - 20) && parseInt($(".ball").css("left")) <= parseInt($(".bonfire").css("left")) + 220) && ((parseInt($(".ball").css("top")) >= parseInt($(".bonfire").css("top")) - 20) && parseInt($(".ball").css("top")) <= parseInt($(".bonfire").css("top")) + 220)) {
+  if(((parseInt($(".ball").css("left")) >= parseInt($(".bonfire").css("left")) - 20) && parseInt($(".ball").css("left")) <= parseInt($(".bonfire").css("left")) + 120) && ((parseInt($(".ball").css("top")) >= parseInt($(".bonfire").css("top")) - 20) && parseInt($(".ball").css("top")) <= parseInt($(".bonfire").css("top")) + 120)) {
     console.log("hello");
   }
 }
@@ -88,20 +89,20 @@ function checkGridSize() {
 }
 
 var myVar = setInterval(myTimer, 1000);
-var timeLeft = 30;
 function myTimer() {
-  if (timeLeft > 0){
-  	timeLeft--;
-  	document.getElementById("timer").innerHTML = timeLeft;
+  if (fire.life > 0){
+  	fire.life--;
+  	document.getElementById("timer").innerHTML = fire.life;
+    if(fire.life % 5 === 0){
+      mapFill();
+    }
   } else {
     clearInterval(myVar);
-    document.getElementById("timer").innerHTML = "Game Over";
-    $("#timer").toggle();
-    $("#scoreboard").toggle();
-    $("#score").text(score(bananaNum,cherryNum,pearNum,pineappleNum,strawberryNum));
+    gameOver();
   }
 }
 
+<<<<<<< HEAD
 function checkTrees(treesAvailable) {
   var treesClose = [];
   treesAvailable.forEach(function(tree) {
@@ -127,8 +128,11 @@ function mapFill(){
     var mapAdd = [parseInt(Math.random()*45),parseInt(Math.random()*49)];
     if(map.includes(mapAdd) === false)
     {
-      map.push(mapAdd);
-      trees++;
+      if((mapAdd[0] > 13 && mapAdd[0] < 26) && (mapAdd[1] > 19 && mapAdd[1]<28)){
+      }else{
+        map.push(mapAdd);
+        trees++;
+      }
     }
   }
 console.log(map);
@@ -146,5 +150,7 @@ $(document).ready(function() {
     $("#mainDiv").toggle();
     $("#gameDiv").toggle();
     $("#gridSpot").toggle();
+  $(".btn").click(function(){
+    gameRestart();
   });
 });

@@ -87,8 +87,12 @@ function checkGridSize() {
   $(".grid").width(parseInt($("#gridSpot").css("width")) / 50);
   $(".grid").height(900/50);
 }
-
+var skellyLR = 0;
+var skellyUD = 0;
 var myVar = setInterval(myTimer, 1000);
+var skellyMove;
+var skellyRun = 0;
+var skellyJump = 0;
 function myTimer() {
   if (fire.life > 0){
   	fire.life--;
@@ -98,9 +102,57 @@ function myTimer() {
     }
   } else {
     clearInterval(myVar);
+    clearInterval(skellyMove);
     gameOver();
   }
 }
+
+var skellyMove = setInterval(skellyGoing, 10);
+function skellyGoing() {
+  skellyRun = 0;
+  skellyJump = 0;
+  skellyLR = 0;
+  skellyUD = 0;
+
+
+  $(".skull").fadeIn();
+
+  if (parseInt($(".man").css("left")) > (parseInt($(".skull").css("left")))) {
+    skellyLR = 39;
+  }
+  else if (parseInt($(".man").css("left")) < (parseInt($(".skull").css("left")))) {
+    skellyLR = 37;
+  }
+  else {
+    skellyLR = (Math.floor(Math.random()*2)*2 + 37);
+  }
+  if (parseInt($(".man").css("top")) > (parseInt($(".skull").css("top")))) {
+    skellyUD = 40;
+  }
+  else if (parseInt($(".man").css("top")) < (parseInt($(".skull").css("top")))) {
+    skellyUD = 38;
+  }
+  else {
+    skellyUD = (Math.floor(Math.random()*2)*2 + 38);
+  }
+  skellyRun = change[skellyLR];
+  skellyJump = change[skellyUD];
+
+
+   //console.log("down", key, movement[key])
+
+  if (fire.life <= 70) {
+  if(over === false){
+    $(".skull").css(skellyRun);
+    $(".skull").css(skellyJump);
+
+  }
+  $(".skull").empty();
+  $(".skull").append("<img src='img/skull.gif'>");
+  }
+
+}
+
 
 function checkTrees(treesAvailable) {
   var treesClose = [];

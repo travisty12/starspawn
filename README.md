@@ -2,7 +2,7 @@
 
 #### asdfasdf
 
-#### By Travis Toal, Drew Yox, Ryan McLean, Randee Layosa, and Jared Farkas
+#### By Travis Toal, Drew Yoxsimer, Ryan McLean, Randee Layosa, and Jared Farkas
 
 ## Description
 

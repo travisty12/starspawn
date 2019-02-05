@@ -33,29 +33,26 @@ function keydown(e) {
 
      //console.log("down", key, movement[key])
     function keepGoing() {
-    if(over === false){
-      $(".ball").css(animation)
-      if (key === 37) {
-        $(".man").empty();
-        $(".man").append("<img src='img/leftMan.gif'>");
+      if(over === false){
+        $(".ball").css(animation)
+        if (key === 37) {
+          $(".man").empty();
+          $(".man").append("<img src='img/leftMan.gif'>");
+        }
+        else if (key === 38) {
+          $(".man").empty();
+          $(".man").append("<img src='img/upMan.gif'>");
+        }
+        else if (key === 39) {
+          $(".man").empty();
+          $(".man").append("<img src='img/rightMan.gif'>");
+        }
+        else if (key === 40) {
+          $(".man").empty();
+          $(".man").append("<img src='img/downMan.gif'>");
+        }
+        else {}
       }
-      else if (key === 38) {
-        $(".man").empty();
-        $(".man").append("<img src='img/upMan.gif'>");
-      }
-      else if (key === 39) {
-        $(".man").empty();
-        $(".man").append("<img src='img/rightMan.gif'>");
-      }
-      else if (key === 40) {
-        $(".man").empty();
-        $(".man").append("<img src='img/downMan.gif'>");
-      }
-      else if (key === 37 && key === 40) {
-        $(".man").empty();
-        $(".man").append("<img src='img/skull.gif'>");
-      }
-      else {}
     }
   }
 
@@ -102,7 +99,6 @@ function myTimer() {
   }
 }
 
-<<<<<<< HEAD
 function checkTrees(treesAvailable) {
   var treesClose = [];
   treesAvailable.forEach(function(tree) {
@@ -143,6 +139,8 @@ console.log(map);
   });
 }
 
+
+
 $(document).ready(function() {
   addGrid(50);
   mapFill();
@@ -150,7 +148,8 @@ $(document).ready(function() {
     $("#mainDiv").toggle();
     $("#gameDiv").toggle();
     $("#gridSpot").toggle();
-  $(".btn").click(function(){
-    gameRestart();
+    $(".btn").click(function(){
+      gameRestart();
+    });
   });
 });

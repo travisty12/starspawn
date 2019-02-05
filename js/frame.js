@@ -21,6 +21,12 @@ Player.prototype.cutTree = function(arr){
       this.inventory[0].amount++;
       trees--;
     })
+    map = map.map(function(tree){
+      if(arr.includes(tree){
+         tree = [];
+      }
+      return tree;
+    })
 };
 
 Player.prototype.addToFire = function(){

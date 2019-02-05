@@ -1,6 +1,6 @@
 var change = {
   37: {
-    left: "-=1"
+    left: "-=1",
   },
 
   38: {
@@ -32,7 +32,28 @@ function keydown(e) {
 
    //console.log("down", key, movement[key])
   function keepGoing() {
-    $(".ball").css(animation);
+    $(".ball").css(animation)
+    if (key === 37) {
+      $(".man").empty();
+      $(".man").append("<img src='img/leftMan.gif'>");
+    }
+    else if (key === 38) {
+      $(".man").empty();
+      $(".man").append("<img src='img/upMan.gif'>");
+    }
+    else if (key === 39) {
+      $(".man").empty();
+      $(".man").append("<img src='img/rightMan.gif'>");
+    }
+    else if (key === 40) {
+      $(".man").empty();
+      $(".man").append("<img src='img/downMan.gif'>");
+    }
+    else if (key === 37 && key === 40) {
+      $(".man").empty();
+      $(".man").append("<img src='img/skull.gif'>");
+    }
+    else {}
   }
   if(((parseInt($(".ball").css("left")) >= parseInt($(".bonfire").css("left")) - 20) && parseInt($(".ball").css("left")) <= parseInt($(".bonfire").css("left")) + 220) && ((parseInt($(".ball").css("top")) >= parseInt($(".bonfire").css("top")) - 20) && parseInt($(".ball").css("top")) <= parseInt($(".bonfire").css("top")) + 220)) {
     console.log("hello");

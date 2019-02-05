@@ -1,6 +1,6 @@
 var change = {
   37: {
-    left: "-=1"
+    left: "-=1",
   },
 
   38: {
@@ -25,14 +25,41 @@ var movement = [];
 
 function keydown(e) {
   var key = e.which;
-  var animation = change[key];
-  if (!movement[key]) { // watch out for repeating keys!
-    movement[key] = setInterval(keepGoing, 1);
+  if (key >= 37 && key <= 40) {
+    var animation = change[key];
+    if (!movement[key]) { // watch out for repeating keys!
+      movement[key] = setInterval(keepGoing, 1);
+    }
+
+     //console.log("down", key, movement[key])
+    function keepGoing() {
+      $(".ball").css(animation)
+      if (key === 37) {
+        $(".man").empty();
+        $(".man").append("<img src='img/leftMan.gif'>");
+      }
+      else if (key === 38) {
+        $(".man").empty();
+        $(".man").append("<img src='img/upMan.gif'>");
+      }
+      else if (key === 39) {
+        $(".man").empty();
+        $(".man").append("<img src='img/rightMan.gif'>");
+      }
+      else if (key === 40) {
+        $(".man").empty();
+        $(".man").append("<img src='img/downMan.gif'>");
+      }
+      else if (key === 37 && key === 40) {
+        $(".man").empty();
+        $(".man").append("<img src='img/skull.gif'>");
+      }
+      else {}
+    }
   }
 
-   //console.log("down", key, movement[key])
-  function keepGoing() {
-    $(".ball").css(animation);
+  if (key === 32) {
+    checkTrees(map);
   }
   if(((parseInt($(".ball").css("left")) >= parseInt($(".bonfire").css("left")) - 20) && parseInt($(".ball").css("left")) <= parseInt($(".bonfire").css("left")) + 220) && ((parseInt($(".ball").css("top")) >= parseInt($(".bonfire").css("top")) - 20) && parseInt($(".ball").css("top")) <= parseInt($(".bonfire").css("top")) + 220)) {
     console.log("hello");
@@ -74,26 +101,50 @@ function myTimer() {
     $("#score").text(score(bananaNum,cherryNum,pearNum,pineappleNum,strawberryNum));
   }
 }
-$(document).ready(function() {
-  addGrid(50);
-  function mapFill(){
 
-    var map = [];
-
-    for(i=0;i<12;i++){
-      var mapAdd = [parseInt(Math.random()*45),parseInt(Math.random()*49)];
-      if(map.includes(mapAdd) === false)
-      {
-        map.push(mapAdd);
+function checkTrees(treesAvailable) {
+  var treesClose = [];
+  treesAvailable.forEach(function(tree) {
+    if (parseInt($(".man").css("left")) >= ((parseInt($("#gridSpot").css("width")) / 50) * tree[1]) - 60) {
+      if (parseInt($(".man").css("left")) <= ((parseInt($("#gridSpot").css("width")) / 50) * tree[1]) + 98) {
+        if (parseInt($(".man").css("top")) >= (180 + (19* tree[0]) - 60)) {
+          if (parseInt($(".man").css("top")) <= (180 + (19 * tree[0]) + 118)) {
+            treesClose.push(tree);
+          }
+        }
       }
     }
- console.log(map);
+  });
+  return treesClose;
+}
 
-    map.forEach(function(ma){
-      console.log("#cell" + ma[0] + "-" + ma[1]);
-      $("#cell" + ma[0] + "-" + ma[1]+ "").append("<img class='tree' src='img/tree.png'>");
-    });
+var trees = 0;
+var map = [];
+
+function mapFill(){
+
+  while(trees < 12){
+    var mapAdd = [parseInt(Math.random()*45),parseInt(Math.random()*49)];
+    if(map.includes(mapAdd) === false)
+    {
+      map.push(mapAdd);
+      trees++;
+    }
   }
- // <img src='img/tree.jpg'>
+console.log(map);
+
+  map.forEach(function(ma){
+    console.log("#cell" + ma[0] + "-" + ma[1]);
+    $("#cell" + ma[0] + "-" + ma[1]+ "").append("<img class='tree' src='img/tree.png'>");
+  });
+}
+
+$(document).ready(function() {
+  addGrid(50);
   mapFill();
+  $("#play").click(function() {
+    $("#mainDiv").toggle();
+    $("#gameDiv").toggle();
+    $("#gridSpot").toggle();
+  });
 });

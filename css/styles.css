@@ -102,3 +102,12 @@ h1{
   width: auto;
   /* top: 120px; */
 }
+
+.skull {
+  display: none;
+  position: absolute;
+  height:85px;
+  width: 85px;
+  left: 500px;
+  top: 50px;
+}

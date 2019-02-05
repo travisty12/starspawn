@@ -1,5 +1,5 @@
 function Fire(){
-  this.life = 100;
+  this.life = 75;
 }
 
 var fire = new Fire();
@@ -63,6 +63,7 @@ function gameRestart(){
   fire = new Fire();
   myTimer();
   myVar = setInterval(myTimer, 1000);
+  skellyMove = setInterval(skellyGoing, 10);
   player = new Player();
   over = false;
   $(".tree").remove();

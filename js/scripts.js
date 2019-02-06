@@ -20,6 +20,17 @@ $(document).on({
   keyup: keyup
 });
 
+var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+  if(!isChrome){
+    $('.audioChrome').remove()
+
+  }
+  else{
+     $('.audioNotChrome').remove()
+  }
+
+
+
 
 var movement = [];
 
@@ -208,6 +219,8 @@ console.log(map);
 $(document).ready(function() {
   addGrid(50);
   $("#play").click(function() {
+    $(".menuMusic").empty();
+    $(".menuMusic").append("<div class='menuMusic'> <audio autoplay loop  class='audioNotChrome'> <source src='audio/game.mp3'> </audio> <iframe src='audio/game.mp3' allow='autoplay' class='audioChrome' style='display:none'></iframe></div>")
     $("#mainDiv").toggle();
     $("#gameDiv").toggle();
     $("#gridSpot").toggle();

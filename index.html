@@ -10,7 +10,28 @@
     <script src="js/scripts.js"></script>
     <title>STARSPAWN</title>
   </head>
+
   <body onresize="checkGridSize()">
+
+
+    <div class='menuMusic'>
+      <audio autoplay loop  class='audioNotChrome'>
+        <source src='audio/menu.mp3'>
+      </audio>
+    <iframe src='audio/menu.mp3' allow='autoplay' class='audioChrome' style='display:none'></iframe>
+    </div>
+
+
+      <audio id="gameAudio">
+        <source src="audio/game.mp3" type="audio/mpeg">
+      </audio>
+
+
+
+
+
+
+
     <div id="mainDiv" class="container">
       <h1>STARSPAWN</h1>
       <img src="img/downMan.gif" alt="man sprite">

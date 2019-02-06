@@ -21,6 +21,16 @@ $(document).on( {
   keyup: keyup
 });
 
+
+var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+  if(!isChrome){
+    $('.audioChrome').remove()
+
+  }
+  else{
+     $('.audioNotChrome').remove()
+  }
+
 var movement = [];
 
 function keydown(e) {
@@ -90,10 +100,10 @@ function checkGridSize() {
 }
 var skellyLR = 0;
 var skellyUD = 0;
-var myVar = setInterval(myTimer, 1000);
 var skellyMove;
 var skellyRun = 0;
 var skellyJump = 0;
+var myTimer;
 function myTimer() {
   if (fire.life > 0){
   	fire.life--;
@@ -199,12 +209,23 @@ function mapFill() {
   });
 }
 
+function fx(soundEffect){
+  $(".fx").empty();
+  $(".fx").append("<audio autoplay  class='audioNotChrome'>  <source src='audio/" + soundEffect + ".m4a'></audio><iframe src='audio/" + soundEffect + ".m4a' allow='autoplay' class='audioChrome' style='display:none'></iframe>");
+  };
+
+function musicChange(musicChoice){
+  $(".music").empty();
+  $(".music").append("<audio autoplay loop class='audioNotChrome'>  <source src='audio/" + musicChoice + ".mp3'></audio><iframe src='audio/" + musicChoice + ".mp3' allow='autoplay' class='audioChrome' style='display:none'></iframe>");
+  };
+
 $(document).ready(function() {
   addGrid(50);
   $("#play").click(function() {
     $("#mainDiv").toggle();
     $("#gameDiv").toggle();
     $("#gridSpot").toggle();
+    myVar = setInterval(myTimer, 1000);
     gameRestart();
   });
   $(".btn").click(function() {

@@ -30,6 +30,7 @@ Player.prototype.cutTree = function(arr) {
     mapFill();
     setTimeout(refill, 6000);
     $("#wood").text(this.inventory[0].amount);
+    fx("saw");
   }
 
 Player.prototype.addToFire = function() {
@@ -37,16 +38,23 @@ Player.prototype.addToFire = function() {
     this.score += 100;
     fire.life += 10;
     $("#wood").text(this.inventory[0].amount);
+    fx("jump");
 };
 
 var over = false;
-function gameOver() {
-  $("#gridSpot").hide();
-  $("#game-over").show();
-  $(".bonfire").hide();
-  $("#inventory").hide();
+function gameOver(){
+  musicChange("");
+  fx("laugh");
   over = true;
-  map = [];
+  setTimeout(function() {
+    musicChange("brushFire");
+    $("#gridSpot").hide();
+    $("#game-over").show();
+    $(".bonfire").hide();
+    $("#inventory").hide();
+    map = [];
+    console.log(map);
+  }, 2500);
 }
 
 function gameRestart() {
@@ -56,6 +64,7 @@ function gameRestart() {
   $("#game-over").hide();
   $(".bonfire").show();
   $("#inventory").show();
+  musicChange("game");
   fire = new Fire();
   myTimer();
   myVar = setInterval(myTimer, 1000);

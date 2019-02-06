@@ -151,7 +151,7 @@ function skellyGoing() {
     $(".skull").empty();
     $(".skull").append("<img src='img/skull.gif'>");
   }
-  if (((parseInt($(".man").css("left")) >= parseInt($(".skull").css("left")) - 10) && parseInt($(".man").css("left")) <= parseInt($(".skull").css("left")) + 95) && ((parseInt($(".man").css("top")) >= parseInt($(".skull").css("top")) - 10) && parseInt($(".man").css("top")) <= parseInt($(".skull").css("top")) + 95)) {
+  if (((parseInt($(".man").css("left")) >= parseInt($(".skull").css("left"))-10) && parseInt($(".man").css("left")) <= parseInt($(".skull").css("left")) + 85) && ((parseInt($(".man").css("top")) >= parseInt($(".skull").css("top")) - 10) && parseInt($(".man").css("top")) <= parseInt($(".skull").css("top")) + 105)) {
     if (fire.life <= 25) {
       clearInterval(myVar);
       clearInterval(skellyMove);
@@ -183,7 +183,7 @@ var trees = 0;
 var map = [];
 
 function mapFill() {
-  while (trees < 12) {
+  while (trees < 14) {
     var mapAdd = [parseInt(Math.random()*45),parseInt(Math.random()*49)];
     if (map.includes(mapAdd) === false) {
       if ((mapAdd[0] > 13 && mapAdd[0] < 26) && (mapAdd[1] > 19 && mapAdd[1]<28)) {

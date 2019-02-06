@@ -107,7 +107,7 @@ h1{
   display: none;
   position: absolute;
   height:85px;
-  width: 85px;
+  width: auto;
   left: 500px;
   top: 50px;
 }

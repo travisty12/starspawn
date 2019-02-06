@@ -42,11 +42,15 @@ function keydown(e) {
     if (!movement[key]) { // watch out for repeating keys!
       movement[key] = setInterval(keepGoing, 1);
     }
-
+    // if (parseInt($(".man").css("left")) <= 20 && key === 65) {
+    //   $(".man").stop();
+    // }
      //console.log("down", key, movement[key])
     function keepGoing() {
       if(over === false){
-        $(".man").css(animation);
+        if ( !( (key === 65 && parseInt($(".man").css("left")) <= 10) || (key === 68 && parseInt($(".man").css("right")) <= 10) || (key === 87 && parseInt($(".man").css("top")) <= 10) || (key === 83 && parseInt($(".man").css("bottom")) <= 10  ))) {
+          $(".man").css(animation);
+        }
         if (key === 65) {
           $(".man").empty();
           $(".man").append("<img src='img/leftMan.gif'>");
@@ -126,6 +130,8 @@ function refill(){
     trees -= 1;
     mapFill();
 }
+
+
 var skellyMove = setInterval(skellyGoing, 10);
 function skellyGoing() {
   skellyRun = 0;
@@ -160,7 +166,7 @@ function skellyGoing() {
 
    //console.log("down", key, movement[key])
 
-  if (fire.life <= 70) {
+  if (fire.life <= 25) {
   if(over === false){
     $(".skull").css(skellyRun);
     $(".skull").css(skellyJump);
@@ -169,7 +175,13 @@ function skellyGoing() {
   $(".skull").empty();
   $(".skull").append("<img src='img/skull.gif'>");
   }
-
+  if(((parseInt($(".man").css("left")) >= parseInt($(".skull").css("left")) - 10) && parseInt($(".man").css("left")) <= parseInt($(".skull").css("left")) + 95) && ((parseInt($(".man").css("top")) >= parseInt($(".skull").css("top")) - 10) && parseInt($(".man").css("top")) <= parseInt($(".skull").css("top")) + 95)) {
+    if (fire.life <= 25) {
+      clearInterval(myVar);
+      clearInterval(skellyMove);
+      gameOver();
+    }
+  }
 }
 
 

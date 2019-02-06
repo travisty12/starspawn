@@ -56,6 +56,8 @@ console.log(map);
 }
 
 function gameRestart(){
+  clearInterval(myVar);
+  clearInterval(skellyMove);
   $("#gridSpot").show();
   $("#game-over").hide();
   $(".bonfire").show();

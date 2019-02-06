@@ -8,30 +8,6 @@ h1{
    font-size: 90px;
  }
 
- #game-over, #gameDiv, #gridSpot {
-   display: none;
- }
-
- #timer{
-   color:red;
-   font-size: 30px;
- }
-
-#gridSpot {
-  top: 30px;
-  font-size: 0;
-  margin: 0;
-  height: 900px;
-  width: 100%;
-  padding: 0;
-  border: none;
-}
-
-#play{
-  margin-top: 40px;
-
-}
-
 .grid {
   margin: 0;
   padding: 0;
@@ -66,18 +42,6 @@ h1{
   color: #00ff41;
 }
 
-#inventory {
-  background-color: rgba(0,0,0,0.3);
-}
-
-#game-over {
-  background-color: black;
-  color: white;
-  padding-top:15px;
-  padding-bottom: 45px;
-  color: #B22222;
-}
-
 .skelly {
   margin-left: -610px;
 }
@@ -101,7 +65,6 @@ h1{
   margin-bottom: 19px;
 }
 
-
 .man img {
   height: 50px;
   width: auto;
@@ -115,4 +78,47 @@ h1{
   width: auto;
   left: 500px;
   top: 50px;
+}
+
+.titleImage{
+  display: inline;
+  width: 300px;
+  height: auto;
+  margin: 35px;
+}
+
+#inventory {
+  background-color: rgba(0,0,0,0.3);
+}
+
+#game-over {
+  background-color: black;
+  color: white;
+  padding-top:15px;
+  padding-bottom: 45px;
+  color: #B22222;
+}
+
+#game-over, #gameDiv, #gridSpot {
+  display: none;
+}
+
+#timer{
+  color:red;
+  font-size: 30px;
+}
+
+#gridSpot {
+  top: 30px;
+  font-size: 0;
+  margin: 0;
+  height: 900px;
+  width: 100%;
+  padding: 0;
+  border: none;
+}
+
+#play{
+  margin-top: 40px;
+
 }

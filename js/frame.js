@@ -28,7 +28,7 @@ Player.prototype.cutTree = function(arr) {
     });
     $(".tree").remove();
     mapFill();
-    setTimeout(refill, 10000);
+    setTimeout(refill, 6000);
     $("#wood").text(this.inventory[0].amount);
   }
 
@@ -65,7 +65,7 @@ function gameRestart() {
   $(".tree").remove();
   $(".man").css("left","50%");
   $(".man").css("top","50%");
-  $(".skull").css("left","-85px");
+  $(".skull").css("left","-150px");
   $(".skull").css("top","50%");
   trees = 0;
   mapFill();

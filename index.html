@@ -14,7 +14,7 @@
   <body onresize="checkGridSize()">
 
 
-    <div class='menuMusic'>
+    <div class='music'>
       <audio autoplay loop  class='audioNotChrome'>
         <source src='audio/menu.mp3'>
       </audio>
@@ -22,9 +22,15 @@
     </div>
 
 
-      <audio id="gameAudio">
-        <source src="audio/game.mp3" type="audio/mpeg">
+    <div class='fx'>
+      <!-- <audio autoplay class='audioNotChrome'>
+        <source src='audio/'>
       </audio>
+    <iframe src='audio/' allow='autoplay' class='audioChrome' style='display:none'></iframe> -->
+    </div>
+
+
+
 
 
 
@@ -35,10 +41,10 @@
     <div id="mainDiv" class="container">
       <h1>SKELERUN</h1>
       <img src="img/downMan.gif" alt="man sprite">
-      <button type="button" id="play">Play Now</button>
+      <br><button type="button" id="play">Play Now</button>
       <footer class="page-footer font-small blue pt-4">
-        <div class="container-fluid text-center text-md-left">
-          <hr class="clearfix w-100 d-md-none pb-3">
+      <div class="container-fluid text-center text-md-left">
+      <hr class="clearfix w-100 d-md-none pb-3">
           <div class="row">
             <div class="col-md-6 mt-md-0 mt-3">
               <h5 class="text-uppercase">Skelerun Instructions</h5>
@@ -66,6 +72,8 @@
             </div>
           </div>
         </div>
+        <br>
+        <br>
         <div class="footer-copyright text-center py-3">© 2019 Copyright:
           <a href="#">Best Group</a>
         </div>
@@ -74,7 +82,6 @@
     <div id="gameDiv" class="container">
       <h1>SKELERUN</h1>
       <p id="timer">100</p>
-      <!-- <div id="gridSpot"></div> -->
       <div class="well navbar navbar-fixed-bottom" id="inventory">
         <h3>Wood: <span id="wood"></span></h3>
         <h3>Score: <span id="score-count"></span></h3>

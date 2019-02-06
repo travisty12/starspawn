@@ -27,6 +27,11 @@ h1{
   border: none;
 }
 
+#play{
+  margin-top: 40px;
+
+}
+
 .grid {
   margin: 0;
   padding: 0;

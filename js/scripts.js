@@ -1,6 +1,6 @@
 var change = {
   65: {     //left
-    left: "-=1",
+    left: "-=1"
   },
 
   87: {     //up
@@ -15,29 +15,24 @@ var change = {
     top: "+=1"
   },
 };
-$(document).on({
+
+$(document).on( {
   keydown: keydown,
   keyup: keyup
 });
-
 
 var movement = [];
 
 function keydown(e) {
   var key = e.which;
   if (key === 65 || key === 68 || key === 83 || key === 87) {
-    console.log(change[key]);
     var animation = change[key];
     if (!movement[key]) { // watch out for repeating keys!
       movement[key] = setInterval(keepGoing, 1);
     }
-    // if (parseInt($(".man").css("left")) <= 20 && key === 65) {
-    //   $(".man").stop();
-    // }
-     //console.log("down", key, movement[key])
     function keepGoing() {
-      if(over === false){
-        if ( !( (key === 65 && parseInt($(".man").css("left")) <= 10) || (key === 68 && parseInt($(".man").css("right")) <= 10) || (key === 87 && parseInt($(".man").css("top")) <= 10) || (key === 83 && parseInt($(".man").css("bottom")) <= 10  ))) {
+      if (over === false) {
+        if ( !((key === 65 && parseInt($(".man").css("left")) <= 10) || (key === 68 && parseInt($(".man").css("right")) <= 10) || (key === 87 && parseInt($(".man").css("top")) <= 10) || (key === 83 && parseInt($(".man").css("bottom")) <= 10  ))) {
           $(".man").css(animation);
         }
         if (key === 65) {
@@ -65,14 +60,11 @@ function keydown(e) {
   if (key === 16) {
     checkTrees(map);
   }
-
-  // if(parseInt($(".man").css("left")))
-  //
   if(((parseInt($(".man").css("left")) >= parseInt($(".bonfire").css("left")) - 20) && parseInt($(".man").css("left")) <= parseInt($(".bonfire").css("left")) + 120) && ((parseInt($(".man").css("top")) >= parseInt($(".bonfire").css("top")) - 20) && parseInt($(".man").css("top")) <= parseInt($(".bonfire").css("top")) + 120)) {
-    if(key === 16)
-    {
-      if (player.inventory[0].amount >= 10)
-      player.addToFire();
+    if(key === 16) {
+      if (player.inventory[0].amount >= 10) {
+        player.addToFire();
+      }
     }
   }
 }
@@ -80,10 +72,9 @@ function keydown(e) {
 function keyup(e) {
   var key = e.which;
   movement[key] = clearInterval(movement[key]);
-     //console.log("up", key, movement[key])
 }
 
-function addGrid(size){
+function addGrid(size) {
   for (var rows = 0; rows < size; rows++) {
     for (var columns = 0; columns < size; columns++) {
       $("#gridSpot").append("<div class='grid' id='cell" + rows + "-" + columns + "'></div>");
@@ -108,18 +99,18 @@ function myTimer() {
   	fire.life--;
   	document.getElementById("timer").innerHTML = fire.life;
     player.score +=1;
-  } else {
+  }
+  else {
     clearInterval(myVar);
     clearInterval(skellyMove);
     gameOver();
   }
   $("#score-count").text(player.score);
 }
-function refill(){
+function refill() {
     trees -= 1;
     mapFill();
 }
-
 
 var skellyMove = setInterval(skellyGoing, 10);
 function skellyGoing() {
@@ -127,10 +118,7 @@ function skellyGoing() {
   skellyJump = 0;
   skellyLR = 0;
   skellyUD = 0;
-
-
   $(".skull").fadeIn();
-
   if (parseInt($(".man").css("left")) > (parseInt($(".skull").css("left")))) {
     skellyLR = 68;
   }
@@ -156,15 +144,14 @@ function skellyGoing() {
    //console.log("down", key, movement[key])
 
   if (fire.life <= 25) {
-  if(over === false){
-    $(".skull").css(skellyRun);
-    $(".skull").css(skellyJump);
-
+    if (over === false) {
+      $(".skull").css(skellyRun);
+      $(".skull").css(skellyJump);
+    }
+    $(".skull").empty();
+    $(".skull").append("<img src='img/skull.gif'>");
   }
-  $(".skull").empty();
-  $(".skull").append("<img src='img/skull.gif'>");
-  }
-  if(((parseInt($(".man").css("left")) >= parseInt($(".skull").css("left")) - 10) && parseInt($(".man").css("left")) <= parseInt($(".skull").css("left")) + 95) && ((parseInt($(".man").css("top")) >= parseInt($(".skull").css("top")) - 10) && parseInt($(".man").css("top")) <= parseInt($(".skull").css("top")) + 95)) {
+  if (((parseInt($(".man").css("left")) >= parseInt($(".skull").css("left")) - 10) && parseInt($(".man").css("left")) <= parseInt($(".skull").css("left")) + 95) && ((parseInt($(".man").css("top")) >= parseInt($(".skull").css("top")) - 10) && parseInt($(".man").css("top")) <= parseInt($(".skull").css("top")) + 95)) {
     if (fire.life <= 25) {
       clearInterval(myVar);
       clearInterval(skellyMove);
@@ -195,27 +182,22 @@ function checkTrees(treesAvailable) {
 var trees = 0;
 var map = [];
 
-function mapFill(){
-  while(trees < 12){
+function mapFill() {
+  while (trees < 12) {
     var mapAdd = [parseInt(Math.random()*45),parseInt(Math.random()*49)];
-    if(map.includes(mapAdd) === false)
-    {
-      if((mapAdd[0] > 13 && mapAdd[0] < 26) && (mapAdd[1] > 19 && mapAdd[1]<28)){
-      }else{
+    if (map.includes(mapAdd) === false) {
+      if ((mapAdd[0] > 13 && mapAdd[0] < 26) && (mapAdd[1] > 19 && mapAdd[1]<28)) {
+      }
+      else {
         map.push(mapAdd);
         trees++;
       }
     }
   }
-console.log(map);
-
-  map.forEach(function(ma){
-    console.log("#cell" + ma[0] + "-" + ma[1]);
+  map.forEach(function(ma) {
     $("#cell" + ma[0] + "-" + ma[1]+ "").append("<img class='tree' src='img/tree.png'>");
   });
 }
-
-
 
 $(document).ready(function() {
   addGrid(50);
@@ -225,7 +207,7 @@ $(document).ready(function() {
     $("#gridSpot").toggle();
     gameRestart();
   });
-  $(".btn").click(function(){
+  $(".btn").click(function() {
     gameRestart();
   });
 });

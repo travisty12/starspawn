@@ -151,8 +151,6 @@ function skellyGoing() {
   skellyJump = change[skellyUD];
 
 
-   //console.log("down", key, movement[key])
-
   if (fire.life <= 25) {
     if (over === false) {
       $(".skull").css(skellyRun);
@@ -212,12 +210,14 @@ function mapFill() {
 function fx(soundEffect){
   $(".fx").empty();
   $(".fx").append("<audio autoplay  class='audioNotChrome'>  <source src='audio/" + soundEffect + ".m4a'></audio><iframe src='audio/" + soundEffect + ".m4a' allow='autoplay' class='audioChrome' style='display:none'></iframe>");
-  };
+};
 
 function musicChange(musicChoice){
   $(".music").empty();
-  $(".music").append("<audio autoplay loop class='audioNotChrome'>  <source src='audio/" + musicChoice + ".mp3'></audio><iframe src='audio/" + musicChoice + ".mp3' allow='autoplay' class='audioChrome' style='display:none'></iframe>");
-  };
+  if(musicChoice !== ""){
+    $(".music").append("<audio autoplay loop class='audioNotChrome'>  <source src='audio/" + musicChoice + ".mp3'></audio><iframe src='audio/" + musicChoice + ".mp3' allow='autoplay' class='audioChrome' style='display:none'></iframe>");
+  }
+};
 
 $(document).ready(function() {
   addGrid(50);

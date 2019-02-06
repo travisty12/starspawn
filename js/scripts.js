@@ -35,7 +35,7 @@ function keydown(e) {
      //console.log("down", key, movement[key])
     function keepGoing() {
       if(over === false){
-        $(".ball").css(animation);
+        $(".man").css(animation);
         if (key === 65) {
           $(".man").empty();
           $(".man").append("<img src='img/leftMan.gif'>");
@@ -62,9 +62,9 @@ function keydown(e) {
     checkTrees(map);
   }
 
-  // if(parseInt($(".ball").css("left")))
+  // if(parseInt($(".man").css("left")))
   //
-  if(((parseInt($(".ball").css("left")) >= parseInt($(".bonfire").css("left")) - 20) && parseInt($(".ball").css("left")) <= parseInt($(".bonfire").css("left")) + 120) && ((parseInt($(".ball").css("top")) >= parseInt($(".bonfire").css("top")) - 20) && parseInt($(".ball").css("top")) <= parseInt($(".bonfire").css("top")) + 120)) {
+  if(((parseInt($(".man").css("left")) >= parseInt($(".bonfire").css("left")) - 20) && parseInt($(".man").css("left")) <= parseInt($(".bonfire").css("left")) + 120) && ((parseInt($(".man").css("top")) >= parseInt($(".bonfire").css("top")) - 20) && parseInt($(".man").css("top")) <= parseInt($(".bonfire").css("top")) + 120)) {
     if(key === 16)
     {
       if (player.inventory[0].amount >= 10)
@@ -111,7 +111,10 @@ function myTimer() {
   }
   $("#score-count").text(player.score);
 }
-
+function refill(){
+    trees -= 1;
+    mapFill();
+}
 var skellyMove = setInterval(skellyGoing, 10);
 function skellyGoing() {
   skellyRun = 0;
@@ -123,22 +126,22 @@ function skellyGoing() {
   $(".skull").fadeIn();
 
   if (parseInt($(".man").css("left")) > (parseInt($(".skull").css("left")))) {
-    skellyLR = 39;
+    skellyLR = 68;
   }
   else if (parseInt($(".man").css("left")) < (parseInt($(".skull").css("left")))) {
-    skellyLR = 37;
+    skellyLR = 65;
   }
   else {
-    skellyLR = (Math.floor(Math.random()*2)*2 + 37);
+    skellyLR = (Math.floor(Math.random()*2)*3 + 65);
   }
   if (parseInt($(".man").css("top")) > (parseInt($(".skull").css("top")))) {
-    skellyUD = 40;
+    skellyUD = 83;
   }
   else if (parseInt($(".man").css("top")) < (parseInt($(".skull").css("top")))) {
-    skellyUD = 38;
+    skellyUD = 87;
   }
   else {
-    skellyUD = (Math.floor(Math.random()*2)*2 + 38);
+    skellyUD = (Math.floor(Math.random()*2)*4 + 83);
   }
   skellyRun = change[skellyLR];
   skellyJump = change[skellyUD];
@@ -167,11 +170,13 @@ function checkTrees(treesAvailable) {
         if (parseInt($(".man").css("top")) >= (180 + (19 * tree[0]) - 60)) {
           if (parseInt($(".man").css("top")) <= (180 + (19 * tree[0]) + 118)) {
             treesClose.push(tree);
+            player.cutTree(treesClose);
           }
         }
       }
     }
   });
+
   return treesClose;
 }
 
@@ -206,8 +211,9 @@ $(document).ready(function() {
     $("#mainDiv").toggle();
     $("#gameDiv").toggle();
     $("#gridSpot").toggle();
-    $(".btn").click(function(){
-      gameRestart();
-    });
+    gameRestart();
+  });
+  $(".btn").click(function(){
+    gameRestart();
   });
 });

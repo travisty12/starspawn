@@ -53,7 +53,6 @@ function gameOver(){
     $(".bonfire").hide();
     $("#inventory").hide();
     map = [];
-    console.log(map);
   }, 2500);
 }
 

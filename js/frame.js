@@ -1,5 +1,5 @@
 function Fire(){
-  this.life = 75;
+  this.life = 30;
 }
 
 var fire = new Fire();
@@ -38,7 +38,7 @@ Player.prototype.cutTree = function(arr){
 Player.prototype.addToFire = function(){
     this.inventory[0].amount -= 10;
     this.score += 100;
-    fire.life += 20;
+    fire.life += 10;
     $("#wood").text(this.inventory[0].amount);
 };
 
@@ -48,7 +48,6 @@ function gameOver(){
 $("#gridSpot").hide();
 $("#game-over").show();
 $(".bonfire").hide();
-$(".man").empty();
 $("#inventory").hide();
 over = true;
 map = [];
@@ -69,6 +68,10 @@ function gameRestart(){
   player = new Player();
   over = false;
   $(".tree").remove();
+  $(".man").css("left","50%");
+  $(".man").css("top","50%");
+  $(".skull").css("left","-85px");
+  $(".skull").css("top","50%");
   trees = 0;
   mapFill();
 }

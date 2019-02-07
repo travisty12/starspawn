@@ -46,6 +46,11 @@ function gameOver(){
   musicChange("");
   fx("laugh");
   over = true;
+  if (fire.life <= 10) {
+    $("#skull").hide();
+  } else {
+    $("#rageSkull").hide();
+  }
   setTimeout(function() {
     musicChange("brushFire");
     $("#gridSpot").hide();
@@ -65,7 +70,6 @@ function gameRestart() {
   $("#inventory").show();
   musicChange("game");
   fire = new Fire();
-  myTimer();
   myVar = setInterval(myTimer, 1000);
   skellyMove = setInterval(skellyGoing, 10);
   player = new Player();
@@ -73,8 +77,9 @@ function gameRestart() {
   $(".tree").remove();
   $(".man").css("left","50%");
   $(".man").css("top","50%");
-  $(".skull").css("left","-150px");
+  $(".skull").css("left","-300px");
   $(".skull").css("top","50%");
+  $("#rageSkull").hide();
   trees = 0;
   mapFill();
 }

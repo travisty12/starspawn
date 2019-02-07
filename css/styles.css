@@ -120,5 +120,10 @@ h1{
 
 #play{
   margin-top: 40px;
+}
 
+#rageSkull {
+  display: none;
+  height: 300px;
+  width: auto;
 }

@@ -42,7 +42,7 @@ function keydown(e) {
     }
     function keepGoing() {
       if (over === false) {
-        if ( !((key === 65 && parseInt($(".man").css("left")) <= 10) || (key === 68 && parseInt($(".man").css("right")) <= 10) || (key === 87 && parseInt($(".man").css("top")) <= 10) || (key === 83 && parseInt($(".man").css("bottom")) <= 10  ))) {
+        if ( !((key === 65 && parseInt($(".man").css("left")) <= 10) || (key === 68 && parseInt($(".man").css("right")) <= 10) || (key === 87 && parseInt($(".man").css("top")) <= 10) || (key === 83 && parseInt($(".man").css("top")) >= 1000  ))) {
           $(".man").css(animation);
         }
         if (key === 65) {
@@ -128,7 +128,8 @@ function skellyGoing() {
   skellyJump = 0;
   skellyLR = 0;
   skellyUD = 0;
-  $(".skull").fadeIn();
+  $(".skull").show();
+
   if (parseInt($(".man").css("left")) > (parseInt($(".skull").css("left")))) {
     skellyLR = 68;
   }
@@ -151,18 +152,36 @@ function skellyGoing() {
   skellyJump = change[skellyUD];
 
 
-  if (fire.life <= 25) {
+  if (fire.life <= 25 && fire.life > 10) {
     if (over === false) {
       $(".skull").css(skellyRun);
       $(".skull").css(skellyJump);
+      $("#rageSkull").hide();
     }
     $(".skull").empty();
     $(".skull").append("<img src='img/skull.gif'>");
   }
+
   if (((parseInt($(".man").css("left")) >= parseInt($(".skull").css("left"))-10) && parseInt($(".man").css("left")) <= parseInt($(".skull").css("left")) + 85) && ((parseInt($(".man").css("top")) >= parseInt($(".skull").css("top")) - 10) && parseInt($(".man").css("top")) <= parseInt($(".skull").css("top")) + 105)) {
     if (fire.life <= 25) {
       clearInterval(myVar);
       clearInterval(skellyMove);
+      gameOver();
+    }
+  }
+  if(fire.life<=10) {
+    if (over === false) {
+      $("#skull").hide();
+      $("#rageSkull").show();
+      $(".skull").css(skellyRun);
+      $(".skull").css(skellyJump);
+    }
+    $(".skull").empty();
+    $(".skull").append("<img src='img/rageSkull.gif'>");
+    if (((parseInt($(".man").css("left")) >= parseInt($(".skull").css("left"))-10) && parseInt($(".man").css("left")) <= parseInt($(".skull").css("left")) + 215) && ((parseInt($(".man").css("top")) >= parseInt($(".skull").css("top")) - 10) && parseInt($(".man").css("top")) <= parseInt($(".skull").css("top")) + 300)) {
+      clearInterval(myVar);
+      clearInterval(skellyMove);
+      $("#skull").hide();
       gameOver();
     }
   }

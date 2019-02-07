@@ -184,7 +184,17 @@ function skellyGoing() {
       gameOver();
     }
   }
+  if (!rage && fire.life<=10) {
+    rage = true;
+    musicChange("skullSong");
+  };
+  if (fire.life>10 && rage) {
+    rage = false;
+    musicChange("game");
+  };
 }
+
+var rage = false;
 
 
 function checkTrees(treesAvailable) {

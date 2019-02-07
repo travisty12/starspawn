@@ -167,3 +167,7 @@ a:hover {
 #game-over h1{
   color: white;
 }
+
+#logo {
+  width: 300px;
+}

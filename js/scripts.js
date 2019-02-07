@@ -138,10 +138,10 @@ function skellyGoing() {
   else {
     skellyLR = (Math.floor(Math.random()*2)*3 + 65);
   }
-  if (parseInt($(".man").css("top")) > (parseInt($(".skull").css("top")))) {
+  if (parseInt($(".man").css("bottom")) < (parseInt($(".skull").css("bottom")))) {
     skellyUD = 83;
   }
-  else if (parseInt($(".man").css("top")) < (parseInt($(".skull").css("top")))) {
+  else if (parseInt($(".man").css("bottom")) > (parseInt($(".skull").css("bottom")))) {
     skellyUD = 87;
   }
   else {
@@ -212,7 +212,7 @@ function mapFill() {
   while (trees < 14) {
     var mapAdd = [parseInt(Math.random()*45),parseInt(Math.random()*49)];
     if (map.includes(mapAdd) === false) {
-      if ((mapAdd[0] > 13 && mapAdd[0] < 26) && (mapAdd[1] > 19 && mapAdd[1]<28)) {
+      if ((mapAdd[0] > 10 && mapAdd[0] < 30) && (mapAdd[1] > 15 && mapAdd[1]<32)) {
       }
       else {
         map.push(mapAdd);

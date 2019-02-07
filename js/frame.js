@@ -40,9 +40,17 @@ Player.prototype.addToFire = function() {
     $("#wood").text(this.inventory[0].amount);
     fx("jump");
 };
+var highscores=[];
+
 
 var over = false;
 function gameOver(){
+  highscores.push(player.score);
+  highscores.sort();
+  if(highscores.length > 5)
+  {
+    highscores.length = 5;
+  }
   musicChange("");
   fx("laugh");
   over = true;
@@ -55,6 +63,12 @@ function gameOver(){
     musicChange("brushFire");
     $("#gridSpot").hide();
     $("#game-over").show();
+    $(".your-score").empty();
+    $(".your-score").append("Your Score Was: " + player.score);
+    $(".high-scores").empty();
+    highscores.forEach(function(ar){
+      $(".high-scores").append(ar + "<br>")
+    })
     $(".bonfire").hide();
     $("#inventory").hide();
     map = [];
@@ -76,7 +90,7 @@ function gameRestart() {
   over = false;
   $(".tree").remove();
   $(".man").css("left","50%");
-  $(".man").css("top","50%");
+  $(".man").css("top","500px");
   $(".skull").css("left","-300px");
   $(".skull").css("top","50%");
   $("#rageSkull").hide();

@@ -46,7 +46,7 @@ a{
   height: 100px;
   position: absolute;
   left: 45%;
-  top: 40%;
+  top: 500px;
 }
 
 .well {
@@ -162,4 +162,8 @@ a:hover {
 
 .refresh_link {
   color: black;
+}
+
+#game-over h1{
+  color: white;
 }

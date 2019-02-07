@@ -1,7 +1,13 @@
 body{
   font-family: 'Press Start 2P';
   text-align: center;
-  background-color: white;
+  background-color: #C0C0C0;
+}
+
+footer{
+  color: white;
+  background-color: black;
+  padding: 20px;
 }
 
 h1{
@@ -87,6 +93,11 @@ h1{
   margin: 35px;
 }
 
+#titleImage{
+  background-image: url("../img/grass.jpg");
+  padding-bottom: 15px;
+}
+
 #inventory {
   background-color: rgba(0,0,0,0.3);
 }
@@ -120,5 +131,8 @@ h1{
 
 #play{
   margin-top: 40px;
-
+  background-color: red;
+  color: white;
+  width: 150px;
+  height: 60px;
 }

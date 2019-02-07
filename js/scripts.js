@@ -177,7 +177,7 @@ function skellyGoing() {
     }
     $(".skull").empty();
     $(".skull").append("<img src='img/rageSkull.gif'>");
-    if (((parseInt($(".man").css("left")) >= parseInt($(".skull").css("left"))-10) && parseInt($(".man").css("left")) <= parseInt($(".skull").css("left")) + 215) && ((parseInt($(".man").css("top")) >= parseInt($(".skull").css("top")) - 10) && parseInt($(".man").css("top")) <= parseInt($(".skull").css("top")) + 300)) {
+    if (((parseInt($(".man").css("left")) >= parseInt($(".skull").css("left"))-10) && parseInt($(".man").css("left")) <= parseInt($(".skull").css("left")) + 145) && ((parseInt($(".man").css("top")) >= parseInt($(".skull").css("top")) - 10) && parseInt($(".man").css("top")) <= parseInt($(".skull").css("top")) + 200)) {
       clearInterval(myVar);
       clearInterval(skellyMove);
       $("#skull").hide();

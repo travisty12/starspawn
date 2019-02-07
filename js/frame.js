@@ -80,6 +80,9 @@ function gameRestart() {
   $(".skull").css("left","-300px");
   $(".skull").css("top","50%");
   $("#rageSkull").hide();
+  $("#wood").text("0");
+  $("#score-count").text(player.score);
+  document.getElementById("timer").innerHTML = fire.life;
   trees = 0;
   mapFill();
 }

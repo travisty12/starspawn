@@ -1,11 +1,27 @@
 body{
   font-family: 'Press Start 2P';
   text-align: center;
-  background-color: white;
+  background-color: #C0C0C0;
+}
+footer{
+  color: white;
+  background-color: black;
+  padding: 20px;
 }
 
 h1{
-   font-size: 90px;
+  font-size: 90px;
+  text-decoration: underline;
+  margin-bottom: 25px;
+  color: black;
+ }
+
+a{
+  color: black;
+ }
+
+ a:hover{
+   color: #00ff41;
  }
 
 .grid {
@@ -49,7 +65,6 @@ h1{
 .btn {
   display: block;
   margin: auto;
-
 }
 
 .btn:hover{
@@ -87,6 +102,11 @@ h1{
   margin: 35px;
 }
 
+#titleImage{
+  background-image: url("../img/grass.jpg");
+  padding-bottom: 15px;
+}
+
 #inventory {
   background-color: rgba(0,0,0,0.3);
 }
@@ -104,7 +124,7 @@ h1{
 }
 
 #timer{
-  color:red;
+  color:#B22222;
   font-size: 30px;
 }
 
@@ -120,5 +140,8 @@ h1{
 
 #play{
   margin-top: 40px;
-
+  background-color: #B22222;
+  color: white;
+  width: 150px;
+  height: 60px;
 }

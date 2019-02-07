@@ -28,7 +28,7 @@ Player.prototype.cutTree = function(arr) {
     setTimeout(refill, 6000);
     $("#wood").text(this.inventory[0].amount);
     fx("saw");
-  } 
+  }
 
 Player.prototype.addToFire = function() {
     this.inventory[0].amount -= 10;
@@ -38,8 +38,17 @@ Player.prototype.addToFire = function() {
     fx("jump");
 };
 
+var highscores = [];
 var over = false;
 function gameOver(){
+  highscores.push(player.score);
+  highscores.sort(function sortNumber(a,b) {
+        return a - b;
+    });
+  highscores.reverse();
+  if(highscores.length > 5){
+      highscores.length = 5;
+  }
   musicChange("");
   fx("laugh");
   over = true;
@@ -55,13 +64,21 @@ function gameOver(){
     $(".bonfire").hide();
     $("#inventory").hide();
     map = [];
+    $(".your-score").append("Your Score Was: " + player.score);
+    $(".high-scores").empty();
+    highscores.forEach(function(ar){
+      $(".high-scores").append(ar + "<br>")
+    })
   }, 2500);
 }
+
+
 
 function gameRestart() {
   clearInterval(myVar);
   clearInterval(skellyMove);
   $("#gridSpot").show();
+  $(".your-score").empty();
   $("#game-over").hide();
   $(".bonfire").show();
   $("#inventory").show();

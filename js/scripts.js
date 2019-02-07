@@ -209,7 +209,7 @@ var trees = 0;
 var map = [];
 
 function mapFill() {
-  while (trees < 14) {
+  while (trees < 13) {
     var mapAdd = [parseInt(Math.random()*45),parseInt(Math.random()*49)];
     if (map.includes(mapAdd) === false) {
       if ((mapAdd[0] > 10 && mapAdd[0] < 30) && (mapAdd[1] > 15 && mapAdd[1]<32)) {

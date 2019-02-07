@@ -82,7 +82,7 @@
 * _Please contact the authors if additional bugs are found!_
 
 ## Support and contact details
-* _The authors' githubs are linked at the bottom of the main page_
+* _The authors' GitHubs are linked at the bottom of the main page_
 
 
 
@@ -96,4 +96,4 @@
 
 *This software is licensed under the GPL License*
 
-Copyright (c) 2019 **_Jared Farkas, Ryan McLean, Drew Yoxsimer, Travis Toal, Randee Layosa_**
+Copyright (c) 2019 **_Starspawn [Jared Farkas, Ryan McLean, Drew Yoxsimer, Travis Toal, Randee Layosa]_**

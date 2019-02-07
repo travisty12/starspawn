@@ -28,7 +28,7 @@ Player.prototype.cutTree = function(arr) {
     setTimeout(refill, 6000);
     $("#wood").text(this.inventory[0].amount);
     fx("saw");
-  }
+  } 
 
 Player.prototype.addToFire = function() {
     this.inventory[0].amount -= 10;

@@ -24,7 +24,6 @@ $(document).on( {
 var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
   if(!isChrome){
     $('.audioChrome').remove()
-
   }
   else{
      $('.audioNotChrome').remove()
@@ -61,7 +60,6 @@ function keydown(e) {
           $(".man").append("<img src='img/downMan.gif'>");
         }
         else {
-
         }
       }
     }
@@ -211,7 +209,6 @@ function checkTrees(treesAvailable) {
       }
     }
   });
-
   return treesClose;
 }
 

@@ -11,8 +11,6 @@ function Player() {
   this.time = 0;
 }
 
-
-
 Player.prototype.cutTree = function(arr) {
   this.inventory[0].amount++;
     arr.forEach(function(ar) {

@@ -34,45 +34,54 @@ Player.prototype.cutTree = function(arr) {
   }
 
 Player.prototype.addToFire = function() {
-    this.inventory[0].amount -= 10;
-    this.score += 100;
-    fire.life += 10;
-    $("#wood").text(this.inventory[0].amount);
-    fx("jump");
+    if(over === false){
+      this.inventory[0].amount -= 10;
+      this.score += 100;
+      fire.life += 7;
+      $("#wood").text(this.inventory[0].amount);
+      fx("jump");
+  }
 };
 var highscores=[];
 
 
 var over = false;
 function gameOver(){
-  highscores.push(player.score);
-  highscores.sort();
-  if(highscores.length > 5)
-  {
-    highscores.length = 5;
+  if(over === false){
+    highscores.push(parseInt(player.score));
+    highscores = highscores.sort(function sortNumber(a,b) {
+          return a - b;
+      });
+    highscores = highscores.reverse();
+    console.log(highscores);
+    if(highscores.length > 5)
+    {
+      highscores.length = 5;
+    }
+    musicChange("");
+    fx("laugh");
+    over = true;
+    if (fire.life <= 10) {
+      $("#skull").hide();
+    } else {
+      $("#rageSkull").hide();
+    }
+    setTimeout(function() {
+      musicChange("brushFire");
+      $("#gridSpot").hide();
+      $("#game-over").show();
+      $(".your-score").empty();
+      $(".your-score").append("Your Score Was: " + player.score);
+      $(".high-scores").empty();
+      highscores.forEach(function(ar){
+        $(".high-scores").append(ar + "<br>")
+      })
+      $(".bonfire").hide();
+      $("#inventory").hide();
+      map = [];
+    }, 2500);
+    over = true;
   }
-  musicChange("");
-  fx("laugh");
-  over = true;
-  if (fire.life <= 10) {
-    $("#skull").hide();
-  } else {
-    $("#rageSkull").hide();
-  }
-  setTimeout(function() {
-    musicChange("brushFire");
-    $("#gridSpot").hide();
-    $("#game-over").show();
-    $(".your-score").empty();
-    $(".your-score").append("Your Score Was: " + player.score);
-    $(".high-scores").empty();
-    highscores.forEach(function(ar){
-      $(".high-scores").append(ar + "<br>")
-    })
-    $(".bonfire").hide();
-    $("#inventory").hide();
-    map = [];
-  }, 2500);
 }
 
 function gameRestart() {

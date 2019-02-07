@@ -21,7 +21,6 @@ $(document).on( {
   keyup: keyup
 });
 
-
 var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
   if(!isChrome){
     $('.audioChrome').remove()
@@ -228,13 +227,14 @@ function mapFill() {
 
 function fx(soundEffect){
   $(".fx").empty();
-  $(".fx").append("<audio autoplay  class='audioNotChrome'>  <source src='audio/" + soundEffect + ".m4a'></audio><iframe src='audio/" + soundEffect + ".m4a' allow='autoplay' class='audioChrome' style='display:none'></iframe>");
+  $(".fx").append("<audio autoplay  id='audioNotChromeFX'>  <source src='audio/" + soundEffect + ".m4a'></audio><iframe src='audio/" + soundEffect + ".m4a' allow='autoplay' id='audioChromeFX' style='display:none'></iframe>");
 };
 
 function musicChange(musicChoice){
   $(".music").empty();
   if(musicChoice !== ""){
-    $(".music").append("<audio autoplay loop class='audioNotChrome'>  <source src='audio/" + musicChoice + ".mp3'></audio><iframe src='audio/" + musicChoice + ".mp3' allow='autoplay' class='audioChrome' style='display:none'></iframe>");
+    $(".music").append("<audio autoplay loop id='audioNotChrome'>  <source src='audio/" + musicChoice + ".mp3'></audio><iframe src='audio/" + musicChoice + ".mp3' allow='autoplay' id='audioChrome' style='display:none'></iframe>");
+    document.getElementById("audioChrome").volume = (20 / 100);
   }
 };
 
@@ -249,5 +249,8 @@ $(document).ready(function() {
   });
   $(".btn").click(function() {
     gameRestart();
+  });
+  $(".refresh_link").click(function(){
+   location.reload();
   });
 });

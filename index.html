@@ -12,22 +12,24 @@
   </head>
   <body onresize="checkGridSize()">
     <div class='music'>
-      <audio autoplay loop  class='audioNotChrome'>
-        <source src='audio/menu.mp3'>
+      <audio autoplay loop  id='audioNotChrome'>
+        <source src='audio/menuQuiet.mp3'>
       </audio>
-    <iframe src='audio/menu.mp3' allow='autoplay' class='audioChrome' style='display:none'></iframe>
+    <iframe src='audio/menuQuiet.mp3' allow='autoplay' id='audioChrome' style='display:none'></iframe>
     </div>
     <div class='fx'>
     </div>
     <div id="mainDiv" class="container">
-      <h1>SKELERUN</h1>
-      <img src="img/tree.png" alt="tree" class="titleImage">
-      <img src="img/downMan.gif" alt="man sprite" class="titleImage">
-      <img src="img/tree.png" alt="tree" class="titleImage">
-      <br><button type="button" id="play">Play Now</button>
+      <h1 class="title">SKELERUN</h1>
+      <div id="titleImage">
+        <img src="img/tree.png" alt="tree" class="titleImage">
+        <img src="img/downMan.gif" alt="man sprite" class="titleImage">
+        <img src="img/tree.png" alt="tree" class="titleImage">
+        <br><button type="button" id="play">Play Now</button>
+      </div>
       <footer class="page-footer font-small blue pt-4">
         <div class="container-fluid text-center text-md-left">
-          <hr class="clearfix w-100 d-md-none pb-3">
+          <!-- <hr class="clearfix w-100 d-md-none pb-3"> -->
           <div class="row">
             <div class="col-md-12 mt-md-0 mt-3">
               <h5>History of Skelerun</h5>
@@ -36,27 +38,27 @@
           </div>
           <hr class="clearfix w-100 d-md-none pb-3">
           <div class="row">
-            <div class="col-md-6 mt-md-0 mt-3">
+            <div class="col-md-8 mt-md-0 mt-3">
               <h5 class="text-uppercase">Skelerun Instructions</h5>
               <p>Use WASD as arrow keys to navigate through the field. Use the Shift key to collect wood, and then also to deposit the wood into the fire when you have obtained a Wood value of at least 10 - but watch out for the Flying Skull!</p>
             </div>
-            <div class="col-md-6 mb-md-0 mb-3">
+            <div class="col-md-4 mb-md-0 mb-3">
               <h5 class="text-uppercase">Authors' Projects</h5>
               <ul class="list-unstyled">
                 <li>
-                  <a href="#!">Drew Yoxsimer</a>
+                  <a href="https://github.com/drewyox">Drew Yoxsimer</a>
                 </li>
                 <li>
-                  <a href="#!">Jared Farkas</a>
+                  <a href="https://github.com/j-farkas">Jared Farkas</a>
                 </li>
                 <li>
-                  <a href="#!">Randee Layosa</a>
+                  <a href="https://github.com/randeelayosa">Randee Layosa</a>
                 </li>
                 <li>
-                  <a href="#!">Ryan McLean</a>
+                  <a href="https://github.com/Lilkgb">Ryan McLean</a>
                 </li>
                 <li>
-                  <a href="#!">Travis Toal</a>
+                  <a href="https://github.com/travisty12">Travis Toal</a>
                 </li>
               </ul>
             </div>
@@ -70,7 +72,7 @@
       </footer>
     </div>
     <div id="gameDiv" class="container">
-      <h1>SKELERUN</h1>
+      <h1 class="title"><a class="refresh_link" href="javascript:void(0)">SKELERUN</a></h1>
       <p id="timer">100</p>
       <div class="well navbar navbar-fixed-bottom" id="inventory">
         <h3>Wood: <span id="wood"></span></h3>

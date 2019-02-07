@@ -145,3 +145,21 @@ a{
   width: 150px;
   height: 60px;
 }
+
+#rageSkull {
+  display: none;
+  height: 300px;
+  width: auto;
+}
+
+a {
+  color: white;
+}
+
+a:hover {
+  color: yellow;
+}
+
+.refresh_link {
+  color: black;
+}

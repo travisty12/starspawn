@@ -1,4 +1,4 @@
-# SKELERUN
+# SKELERUN by Starspawn
 
 #### Arcade-like JavaScript game with audio, 2.7.19
 

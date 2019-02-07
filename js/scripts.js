@@ -231,4 +231,7 @@ $(document).ready(function() {
   $(".btn").click(function() {
     gameRestart();
   });
+  $(".refresh_link").click(function(){
+   location.reload();
+  });
 });
